@@ -56,6 +56,7 @@ PD2: GPIO_Output (Initial: Low)
 PC8~PC15: GPIO_Output (Initial: High) -> 上电默认灭灯
 
 4. 核心代码逻辑
+
 4.1 关键特性
 初始化复位：在 while(1) 前强制执行灭灯操作，防止上电 LED 乱闪。
 
@@ -66,7 +67,7 @@ PC8~PC15: GPIO_Output (Initial: High) -> 上电默认灭灯
 4.2 代码片段
 C
 
-```/* 重定向 printf 到 USART1 */
+/* 重定向 printf 到 USART1 */
 int fputc(int ch, FILE *f) {
   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xffff);
   return ch;
@@ -88,7 +89,9 @@ while (1) {
     
     HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_RESET); // 关闸
   }
-}```
+}
+
+
 5. 调试指南 (VOFA+)
 5.1 上位机设置
 软件: VOFA+ (v1.3.10+)
