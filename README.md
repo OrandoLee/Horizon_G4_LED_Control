@@ -18,7 +18,7 @@
 
 使用 USB-TTL 串口模块与开发板通信：
 
-- **PA9 (TX) ** $\leftrightarrow$ 模块 RX
+- **PA9 (TX)** $\leftrightarrow$ 模块 RX
 - **PA10 (RX)** $\leftrightarrow$ 模块 TX
 - **GND** $\leftrightarrow$ 模块 GND (**必须共地**)
 
@@ -109,4 +109,5 @@ while (1) {
 - **灯不亮**: 检查 Keil 中是否勾选了 **Use MicroLIB** (printf 必需)。
 - **乱码/无反应**: 检查时钟输入是否误设为 8MHz (实际应为 24MHz)。
 - **一直亮**: 检查是否在 `while(1)` 之前添加了灭灯初始化代码。
+
 
